@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS departments;
 
 CREATE TABLE departments(
 	dept_no VARCHAR,
-	dept_name VARCHAR,
+	dept_name VARCHAR
 );
 
 DROP TABLE IF EXISTS dept_emp;
@@ -40,14 +40,14 @@ CREATE TABLE salaries(
     emp_no INT,
     salary INT,
     from_date DATE,
-    to_date DATE,
+    to_date DATE
 );
 
 DROP TABLE IF EXISTS titles;
 
 CREATE TABLE titles(
     emp_no INT,
-    title INT,
+    title VARCHAR,
     from_date DATE,
-    to_date DATE,
+    to_date DATE
 );
