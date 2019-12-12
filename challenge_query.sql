@@ -1,5 +1,5 @@
 --get all information for each employee
-select employees.first_name, employees.last_name, employees.gender, salaries.salary 
+select employees.emp_no, employees.first_name, employees.last_name, employees.gender, salaries.salary 
 from employees
 inner join salaries on employees.emp_no=salaries.emp_no;
 
@@ -14,3 +14,5 @@ from dept_manager
 inner join salaries on dept_manager.emp_no=salaries.emp_no
 inner join departments on dept_manager.dept_no=departments.dept_no
 inner join employees on dept_manager.emp_no=employees.emp_no;
+
+--
