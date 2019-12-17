@@ -42,6 +42,6 @@ inner join departments on dept_emp.dept_no=departments.dept_no
 where departments.dept_name = 'Sales' or departments.dept_name = 'Development';
 
 --find the most common last names on the roster
-select last_name, COUNT(last_name) AS name_count from employees
-GROUP BY last_name
-ORDER BY name_count DESC;
+select last_name, count(last_name) as name_count from employees
+group by last_name
+order by name_count desc;
