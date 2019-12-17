@@ -18,4 +18,27 @@ inner join employees on dept_manager.emp_no=employees.emp_no;
 --get department info for all employees
 select employees.emp_no, employees.first_name, employees.last_name, dept_emp.emp_no, dept_emp.dept_no
 from employees
-inner join dept_emp on employees.emp_no=dept_emp.emp_no
+inner join dept_emp on employees.emp_no=dept_emp.emp_no;
+
+--find every employee named "Hercules B."
+select * from employees
+where first_name = 'Hercules' and last_name like 'B%';
+
+--find every employee who works in Sales
+select dept_emp.emp_no, employees.first_name, employees.last_name, dept_emp.dept_no, departments.dept_name 
+from dept_emp
+inner join employees on dept_emp.emp_no=employees.emp_no
+inner join departments on dept_emp.dept_no=departments.dept_no
+where departments.dept_name = 'Sales';
+
+--find every employee who works in Sales or Development
+select dept_emp.emp_no, employees.first_name, employees.last_name, dept_emp.dept_no, departments.dept_name 
+from dept_emp
+inner join employees on dept_emp.emp_no=employees.emp_no
+inner join departments on dept_emp.dept_no=departments.dept_no
+where departments.dept_name = 'Sales' or departments.dept_name = 'Development';
+
+--find the most common last names on the roster
+select last_name, COUNT(last_name) AS name_count from employees
+GROUP BY last_name
+ORDER BY name_count DESC;
