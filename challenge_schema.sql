@@ -1,3 +1,15 @@
+DROP TABLE IF EXISTS employees;
+
+CREATE TABLE employees(
+    emp_no INT,
+    birth_date DATE,
+    first_name VARCHAR,
+    last_name VARCHAR,
+    gender VARCHAR(1),
+    hire_date DATE,
+    PRIMARY KEY (emp_no)
+);
+
 DROP TABLE IF EXISTS departments;
 
 CREATE TABLE departments(
@@ -26,18 +38,6 @@ CREATE TABLE dept_manager(
     to_date DATE,
     FOREIGN KEY (dept_no) references departments(dept_no),
     FOREIGN KEY (emp_no) references employees(emp_no)
-);
-
-DROP TABLE IF EXISTS employees;
-
-CREATE TABLE employees(
-    emp_no INT,
-    birth_date DATE,
-    first_name VARCHAR,
-    last_name VARCHAR,
-    gender VARCHAR(1),
-    hire_date DATE,
-    PRIMARY KEY(emp_no)
 );
 
 DROP TABLE IF EXISTS salaries;
