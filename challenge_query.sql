@@ -1,7 +1,8 @@
 --get all information for each employee
 select employees.emp_no, employees.first_name, employees.last_name, employees.gender, salaries.salary 
 from employees
-inner join salaries on employees.emp_no=salaries.emp_no;
+inner join salaries on employees.emp_no=salaries.emp_no
+order by employees.emp_no ASC;
 
 --find employees hired in 1986
 select * 
@@ -15,10 +16,12 @@ inner join salaries on dept_manager.emp_no=salaries.emp_no
 inner join departments on dept_manager.dept_no=departments.dept_no
 inner join employees on dept_manager.emp_no=employees.emp_no;
 
---get department info for all employees
-select employees.emp_no, employees.first_name, employees.last_name, dept_emp.emp_no, dept_emp.dept_no
-from employees
-inner join dept_emp on employees.emp_no=dept_emp.emp_no;
+--get department information for all employees
+select dept_emp.emp_no, employees.last_name, employees.first_name, departments.dept_name
+from dept_emp
+inner join employees on dept_emp.emp_no=employees.emp_no
+inner join departments on dept_emp.dept_no=departments.dept_no
+order by dept_emp.emp_no ASC;
 
 --find every employee named "Hercules B."
 select * from employees
